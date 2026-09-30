@@ -197,6 +197,88 @@ a:hover{color:#A855F7}
 .footer-line .accent{color:#C084FC}
 .footer-note{font-size:.78rem;color:rgba(255,255,255,.28);margin-top:24px;font-style:italic}
 
+/* ── Install Steps (new) ─────────────────────────────────── */
+.install-steps{padding:56px 0;background:#0B0024;color:#fff;position:relative;overflow:hidden}
+.install-steps::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(124,58,237,.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.install-steps .container{position:relative;z-index:1}
+.install-steps .section-label{color:#C084FC}
+.install-steps .section-title{color:#fff;margin-bottom:12px}
+.install-steps-intro{font-size:.92rem;color:rgba(255,255,255,.5);margin-bottom:36px;max-width:560px;line-height:1.65}
+.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{
+  background:rgba(255,255,255,.04);border:1px solid rgba(168,85,247,.15);
+  border-radius:14px;padding:28px 24px;position:relative;
+}
+.step-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;font-weight:800;font-size:.85rem;
+  background:linear-gradient(135deg,#7C3AED,#A855F7);color:#fff;margin-bottom:14px;
+}
+.step h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+.step p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6}
+.step-connector{display:none}
+@media(min-width:701px){
+  .step-connector{
+    display:block;position:absolute;top:46px;right:-22px;
+    width:24px;height:2px;background:rgba(168,85,247,.3);z-index:2;
+  }
+  .step-connector::after{
+    content:"";position:absolute;right:-2px;top:-3px;
+    border:solid rgba(168,85,247,.4);border-width:0 2px 2px 0;
+    padding:3px;transform:rotate(-45deg);
+  }
+}
+
+/* ── Most Popular (new) ──────────────────────────────────── */
+.popular{padding:72px 0;background:#fff}
+.popular .section-label{color:#D946EF}
+.popular .section-title{color:#1a1a2e}
+.popular .section-sub{color:#555}
+.pop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:32px}
+.pop-card{
+  background:#F9F7FF;border-radius:14px;padding:22px 20px;
+  border:1px solid rgba(124,58,237,.08);
+  transition:transform .25s,box-shadow .25s;
+}
+.pop-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(124,58,237,.1)}
+.pop-card h3{font-size:.95rem;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.pop-card .pop-desc{font-size:.82rem;color:#555;line-height:1.6;margin-bottom:10px}
+.pop-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.72rem;font-weight:700;color:#7C3AED;
+  background:rgba(124,58,237,.08);border-radius:100px;padding:3px 10px;
+}
+.pop-badge svg{width:12px;height:12px}
+
+/* ── Onboarding highlight (new, inside resources) ────────── */
+.onboard-label{font-size:.8rem;font-weight:700;color:#7C3AED;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.onboard-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:32px}
+.onboard-card{
+  background:linear-gradient(135deg,rgba(124,58,237,.06),rgba(217,70,239,.04));
+  border:1.5px solid rgba(124,58,237,.15);
+  border-radius:14px;padding:24px 22px;display:flex;gap:14px;align-items:flex-start;
+  transition:transform .2s,box-shadow .2s;
+}
+.onboard-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(124,58,237,.1)}
+.onboard-card .neon-icon{width:40px;height:40px;margin-bottom:0;flex-shrink:0}
+.onboard-card h3{font-size:.95rem;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.onboard-card p{font-size:.84rem;color:#555;line-height:1.6;margin:0}
+.onboard-installs{display:inline-block;font-size:.72rem;font-weight:700;color:#7C3AED;margin-top:8px}
+.res-divider-label{font-size:.8rem;font-weight:700;color:#A855F7;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+
+/* ── Connector dir link (new) ────────────────────────────── */
+.conn-dir{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:24px;font-size:.88rem;font-weight:600;
+  color:#7C3AED;transition:color .2s;
+}
+.conn-dir:hover{color:#A855F7}
+.conn-dir svg{width:16px;height:16px;flex-shrink:0}
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media(max-width:700px){
   .hero{padding:52px 0 48px}
@@ -205,7 +287,9 @@ a:hover{color:#A855F7}
   .hero-sap-logo{width:56px}
   .hero-buttons{flex-direction:column}
   .btn{width:100%;justify-content:center}
-  .cards-row,.skills-grid,.conn-grid,.jp-grid{grid-template-columns:1fr}
+  .cards-row,.skills-grid,.conn-grid,.jp-grid,.pop-grid,.onboard-row{grid-template-columns:1fr}
+  .steps-row{grid-template-columns:1fr}
+  .step-connector{display:none!important}
   .res-item{gap:12px}
   .res-arrow{display:none}
 }
@@ -213,6 +297,7 @@ a:hover{color:#A855F7}
   .cards-row{grid-template-columns:1fr 1fr}
   .skills-grid{grid-template-columns:1fr 1fr}
   .jp-grid{grid-template-columns:1fr 1fr}
+  .pop-grid{grid-template-columns:1fr 1fr 1fr}
 }
 </style>
 </head>
@@ -327,6 +412,55 @@ a:hover{color:#A855F7}
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
+     2b. INSTALL A SKILL IN 3 STEPS
+     ════════════════════════════════════════════════════════════ -->
+<section class="install-steps" id="install">
+  <div class="container">
+    <p class="section-label">Quick Start</p>
+    <h2 class="section-title">Install a skill in 3 steps</h2>
+    <p class="install-steps-intro">Every skill works the same way. No IT ticket, no approval queue — just download, upload, and go.</p>
+
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">1</div>
+        <span class="step-connector"></span>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <path d="M24 8v20m0 0l-6-6m6 6l6-6" stroke="url(#grad-v)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 34h32v6H8z" stroke="#818CF8" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M12 37h8" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Download the skill</h3>
+        <p>Click "Download skill" on any skill card or from the Joule Hub. You get a small file — a .md or .zip.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <span class="step-connector"></span>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <rect x="10" y="8" width="28" height="32" rx="4" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M18 18h12M18 24h8" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="34" cy="34" r="8" fill="#0B0024" stroke="#D946EF" stroke-width="1.8"/>
+          <path d="M30 34h8M34 30v8" stroke="#D946EF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h3>Open Extensions, click Add Skill</h3>
+        <p>In Joule Desktop, hit the Extensions panel (puzzle icon), then + New and Add Skill and Upload.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <circle cx="24" cy="24" r="14" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M17 24l5 5 10-10" stroke="#D946EF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 6v3M24 39v3M6 24h3M39 24h3" stroke="#818CF8" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
+        </svg>
+        <h3>Drag, drop, done</h3>
+        <p>Drop the file in. The skill installs in about one second. Just ask Joule in plain language to use it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
      3. CONNECTORS
      ════════════════════════════════════════════════════════════ -->
 <section class="connectors">
@@ -364,6 +498,11 @@ a:hover{color:#A855F7}
         <p>Gives Joule access to SAP's internal knowledge base for smarter, more accurate answers on SAP topics.</p>
       </div>
     </div>
+
+    <a href="https://hub.joule.only.sap/mcp-servers" target="_blank" rel="noopener noreferrer" class="conn-dir">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Browse all available connectors
+    </a>
   </div>
 </section>
 
@@ -436,12 +575,135 @@ a:hover{color:#A855F7}
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
+     4b. MOST POPULAR ACROSS SAP
+     ════════════════════════════════════════════════════════════ -->
+<section class="popular">
+  <div class="container">
+    <p class="section-label">Community Favourites</p>
+    <h2 class="section-title">Most popular skills across SAP</h2>
+    <p class="section-sub" style="color:#555">These five have the highest install counts company-wide. If thousands of colleagues use them daily, they are worth a look.</p>
+
+    <div class="pop-grid">
+      <div class="pop-card">
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <rect x="6" y="8" width="36" height="26" rx="3" stroke="url(#grad-v)" stroke-width="2"/>
+          <rect x="12" y="14" width="10" height="7" rx="1.5" stroke="#D946EF" stroke-width="1.5"/>
+          <path d="M26 15h10M26 18h7M26 21h10" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M18 34l-2 6M30 34l2 6M14 40h20" stroke="url(#grad-b)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>PowerPoint</h3>
+        <p class="pop-desc">SAP-branded decks from a topic and audience. Plans, drafts, designs, and runs brand QA automatically.</p>
+        <span class="pop-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.36-1.85M9 20H4v-2a3 3 0 015.36-1.85M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
+          9,654 installs
+        </span>
+      </div>
+
+      <div class="pop-card">
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <rect x="6" y="10" width="36" height="28" rx="4" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M6 16l18 11 18-11" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M34 10l4-4M38 10l-4-4" stroke="#D946EF" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M30 10h12" stroke="#D946EF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h3>Daily Email Triage</h3>
+        <p class="pop-desc">Fetches your inbox and triages it into a ranked priority report by urgency, tone, and meeting signals.</p>
+        <span class="pop-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.36-1.85M9 20H4v-2a3 3 0 015.36-1.85M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
+          3,152 installs
+        </span>
+      </div>
+
+      <div class="pop-card">
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <path d="M14 6h14l10 10v26a2 2 0 01-2 2H14a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M28 6v10h10" stroke="#818CF8" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M18 24h12M18 28h12M18 32h8" stroke="#818CF8" stroke-width="1.3" stroke-linecap="round" opacity=".6"/>
+          <path d="M18 20h4" stroke="#D946EF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h3>Word</h3>
+        <p class="pop-desc">Creates, reads, and edits SAP-branded Word documents with full formatting, tables, TOC, and tracked changes.</p>
+        <span class="pop-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.36-1.85M9 20H4v-2a3 3 0 015.36-1.85M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
+          2,751 installs
+        </span>
+      </div>
+
+      <div class="pop-card">
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <rect x="8" y="8" width="32" height="32" rx="3" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M8 16h32M16 16v24M28 16v24" stroke="#818CF8" stroke-width="1.3" opacity=".4"/>
+          <rect x="18" y="20" width="8" height="6" rx="1" stroke="#D946EF" stroke-width="1.5"/>
+          <path d="M10 28h6M34 20h4M34 26h4M10 34h6M22 32h4" stroke="#818CF8" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+        </svg>
+        <h3>Excel</h3>
+        <p class="pop-desc">SAP-branded spreadsheets with formatting, multi-sheet workbooks, formulas, and formula-error verification.</p>
+        <span class="pop-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.36-1.85M9 20H4v-2a3 3 0 015.36-1.85M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
+          2,715 installs
+        </span>
+      </div>
+
+      <div class="pop-card">
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <path d="M10 10h28v24H10z" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 10l14 13 14-13" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 22h12M18 28h8" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="38" cy="36" r="6" fill="#F9F7FF" stroke="#7C3AED" stroke-width="1.5"/>
+          <path d="M36 36l1.5 1.5 3-3" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Executive Communication</h3>
+        <p class="pop-desc">Turns rough notes into crisp, executive-ready updates: Headline, Context, Impact, Decision, Action.</p>
+        <span class="pop-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.36-1.85M9 20H4v-2a3 3 0 015.36-1.85M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
+          1,640 installs
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
      5. LEARN & LEVEL UP
      ════════════════════════════════════════════════════════════ -->
 <section class="resources">
   <div class="container">
     <p class="section-label">Learn &amp; Level Up</p>
     <h2 class="section-title">Ready to go deeper? Here are your go-to resources.</h2>
+
+    <!-- Onboarding skills -->
+    <p class="onboard-label">New to Joule? These two skills get you oriented fast.</p>
+    <div class="onboard-row">
+      <div class="onboard-card">
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <circle cx="24" cy="16" r="8" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M12 40v-4a12 12 0 0124 0v4" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 16h8M24 12v8" stroke="#D946EF" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M32 8l4-2M36 14h4" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        </svg>
+        <div>
+          <h3>Joule Onboarding &amp; Migration</h3>
+          <p>Migrates your config, memory, and MCP mappings from Claude, Cursor, ChatGPT, or Copilot — or guides a first-timer to build Joule memory from scratch.</p>
+          <span class="onboard-installs">783 installs</span>
+        </div>
+      </div>
+      <div class="onboard-card">
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <rect x="10" y="6" width="28" height="36" rx="3" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M16 14h16M16 20h12M16 26h14" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M16 32h6" stroke="#D946EF" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="34" cy="36" r="7" fill="#0B0024" stroke="#D946EF" stroke-width="1.8"/>
+          <path d="M31 36l2 2 4-4" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <h3>Teach Me Joule Desktop</h3>
+          <p>Interactive 9-module course built right into Joule: installation, Outlook and Calendar integration, Spaces, skills, connectors, and usage tracking. Zero setup.</p>
+          <span class="onboard-installs">722 installs</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="res-divider-label">Links &amp; resources</p>
 
     <div class="res-list">
       <a href="https://pages.github.tools.sap/CPIT-Joule-Content/Joule-Internal-Adoption-Knowledge-Hub/joule-work-desktop/" target="_blank" rel="noopener noreferrer" class="res-item">

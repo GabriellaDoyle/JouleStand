@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Joule Stand — AI Powered Growth Culture Experience Day</title>
+<style>
+/* ── Reset & Base ─────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"72 Brand","72",Arial,Helvetica,sans-serif;color:#1a1a2e;background:#fff;line-height:1.65;font-size:17px;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:#0070F2;text-decoration:none;transition:color .2s}
+a:hover{color:#1B90FF}
+
+/* ── Utility ──────────────────────────────────────────────── */
+.container{max-width:1120px;margin:0 auto;padding:0 28px}
+.section-label{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.section-title{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:18px}
+.section-sub{font-size:1.05rem;color:#444;max-width:680px;line-height:1.7}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero{
+  position:relative;
+  background:#00144A;
+  color:#fff;
+  padding:90px 0 80px;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 30%,rgba(161,0,194,.18) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 60% at 20% 80%,rgba(93,54,255,.14) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero .container{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(240,171,0,.15);border:1px solid rgba(240,171,0,.4);
+  border-radius:100px;padding:6px 18px;font-size:.82rem;font-weight:600;color:#F0AB00;
+}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.15;max-width:700px}
+.hero h1 span{
+  background:linear-gradient(135deg,#A100C2,#5D36FF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{font-size:1.15rem;color:rgba(255,255,255,.78);max-width:600px;line-height:1.7}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:8px;margin-top:8px;
+  background:#F0AB00;color:#00144A;font-weight:700;font-size:.95rem;
+  padding:14px 30px;border-radius:10px;transition:transform .2s,box-shadow .2s;
+}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(240,171,0,.35);color:#00144A}
+.hero-sap-logo{position:absolute;top:28px;right:28px;width:80px;opacity:.85}
+
+/* ── Journey Cards ────────────────────────────────────────── */
+.journey{padding:80px 0;background:#f8f8fb}
+.journey .section-label{color:#A100C2}
+.cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:36px}
+.card{
+  background:#fff;border-radius:16px;padding:36px 30px;
+  border:1px solid #e4e4ec;
+  transition:transform .25s,box-shadow .25s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,20,74,.07)}
+.card-icon{
+  width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;font-size:1.5rem;
+}
+.card-icon.gold{background:rgba(240,171,0,.12)}
+.card-icon.blue{background:rgba(27,144,255,.1)}
+.card-icon.purple{background:rgba(161,0,194,.1)}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#00144A}
+.card p{font-size:.94rem;color:#555;line-height:1.7}
+
+/* ── Connectors ───────────────────────────────────────────── */
+.connectors{padding:80px 0;background:#fff}
+.connectors .section-label{color:#0070F2}
+.conn-intro{font-size:1rem;color:#555;margin-bottom:36px;max-width:680px}
+.conn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.conn-tile{
+  border-radius:16px;padding:32px 28px;position:relative;overflow:hidden;
+  border:1px solid #e4e4ec;
+}
+.conn-tile::before{
+  content:"";position:absolute;top:0;left:0;width:4px;height:100%;
+  background:linear-gradient(180deg,#A100C2,#5D36FF);border-radius:4px 0 0 4px;
+}
+.conn-tile h3{font-size:1.1rem;font-weight:700;color:#00144A;margin-bottom:8px}
+.conn-tile p{font-size:.92rem;color:#555;line-height:1.65}
+
+/* ── Skills ───────────────────────────────────────────────── */
+.skills{padding:80px 0;background:#f8f8fb}
+.skills .section-label{color:#F0AB00}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:36px}
+.skill-card{
+  background:#fff;border-radius:16px;padding:32px 26px;
+  border:1px solid #e4e4ec;
+  transition:transform .25s,box-shadow .25s;
+}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,20,74,.07)}
+.skill-icon{
+  width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;font-size:1.25rem;
+}
+.skill-icon.si-gold{background:rgba(240,171,0,.12)}
+.skill-icon.si-blue{background:rgba(27,144,255,.1)}
+.skill-icon.si-purple{background:rgba(161,0,194,.1)}
+.skill-icon.si-navy{background:rgba(0,20,74,.08)}
+.skill-card h3{font-size:1.05rem;font-weight:700;color:#00144A;margin-bottom:8px}
+.skill-card p{font-size:.9rem;color:#555;line-height:1.65}
+
+/* ── Marketplace ──────────────────────────────────────────── */
+.marketplace{
+  padding:64px 0;background:#fff;
+}
+.mp-inner{
+  background:#00144A;border-radius:20px;padding:56px 48px;color:#fff;
+  display:flex;flex-wrap:wrap;align-items:center;gap:32px;
+  position:relative;overflow:hidden;
+}
+.mp-inner::after{
+  content:"";position:absolute;right:-60px;bottom:-60px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(240,171,0,.18),transparent 70%);
+  pointer-events:none;
+}
+.mp-text{flex:1 1 420px;position:relative;z-index:1}
+.mp-text h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;margin-bottom:14px;line-height:1.25}
+.mp-text p{font-size:1rem;color:rgba(255,255,255,.75);line-height:1.7;max-width:560px}
+.mp-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:20px;
+  background:#F0AB00;color:#00144A;font-weight:700;font-size:.95rem;
+  padding:14px 30px;border-radius:10px;transition:transform .2s,box-shadow .2s;
+  position:relative;z-index:1;
+}
+.mp-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(240,171,0,.35);color:#00144A}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.site-footer{
+  background:#00144A;color:rgba(255,255,255,.8);padding:56px 0 40px;
+  text-align:center;
+}
+.footer-highlight{
+  font-size:clamp(1rem,2.5vw,1.25rem);font-weight:600;color:#fff;margin-bottom:14px;line-height:1.5;
+}
+.footer-highlight .gold{color:#F0AB00}
+.footer-note{font-size:.82rem;color:rgba(255,255,255,.4);margin-top:28px;font-style:italic}
+.footer-logo{margin:0 auto 24px;width:64px;opacity:.7}
+
+/* ── SVG icon helpers ─────────────────────────────────────── */
+.icon-svg{width:28px;height:28px}
+.icon-svg.gold path,.icon-svg.gold polygon{fill:#F0AB00}
+.icon-svg.blue path,.icon-svg.blue polygon{fill:#1B90FF}
+.icon-svg.purple path,.icon-svg.purple polygon{fill:#A100C2}
+.icon-svg.navy path,.icon-svg.navy polygon{fill:#00144A}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media(max-width:700px){
+  .hero{padding:64px 0 56px}
+  .hero h1{font-size:1.8rem}
+  .hero-sap-logo{width:60px;top:20px;right:20px}
+  .mp-inner{padding:36px 24px}
+  .cards-row,.skills-grid,.conn-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     1 · HERO
+     ════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <!-- SAP Logo -->
+  <a href="https://www.sap.com" aria-label="SAP" class="hero-sap-logo">
+    <svg viewBox="0 0 412.4 204" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SAP Logo">
+      <defs><linearGradient id="lg" x1="206.19" y1="206" x2="206.19" y2="2" gradientTransform="matrix(1 0 0 -1 0 206)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00B8F1"/><stop offset=".02" stop-color="#01B6F0"/><stop offset=".31" stop-color="#0D90D9"/><stop offset=".58" stop-color="#1775C8"/><stop offset=".82" stop-color="#1C65BF"/><stop offset="1" stop-color="#1E5FBB"/></linearGradient></defs>
+      <polyline fill="url(#lg)" points="0,204 208.4,204 412.4,0 0,0 0,204"/>
+      <path fill="#fff" d="M244.7,38.4h-40.6v96.5l-35.5-96.6h-35.2l-30.3,80.7C100,98.7,79,91.7,62.4,86.4 51.5,82.9,39.8,77.7,40,72c.1-4.7,6.2-9,18.4-8.4 8.2.4,15.4,1.1,29.7,8l14.1-24.5c-13.1-6.6-31.2-10.9-46-10.9h-.1c-17.3,0-31.7,5.6-40.6,14.8-6.2,6.3-9.7,14.8-9.7,23.7C5.5,87.2,10.1,96,19.7,103c8.1,5.9,18.5,9.8,27.6,12.6 11.3,3.5,20.5,6.5,20.4,13-.1,2.4-1,4.7-2.7,6.4-2.8,2.9-7.1,4-13.1,4.1-11.5.2-20-1.6-33.6-9.6L5.8,154.4c14,8,29.9,12.2,46,12.2h2.1c14.2-.2,25.7-4.3,34.9-11.7.5-.4,1-.8,1.5-1.3l-4.1,10.9H123l6.2-18.8c7,2.3,14.3,3.5,21.7,3.4 7.2,0,14.3-1.1,21.2-3.2l6,18.6h60.1v-39h13.1c31.7,0,50.5-16.2,50.5-43.2C301.7,52.2,283.5,38.4,244.7,38.4zM150.9,121c-4.4,0-8.8-.7-13-2.3l12.9-40.6h.2l12.6,40.7C159.6,120.3,155.2,121,150.9,121zM247.1,97.7h-8.9V64.9h8.9c11.9,0,21.4,4,21.4,16.1C268.5,93.7,259,97.6,247.1,97.7"/>
+    </svg>
+  </a>
+
+  <div class="container">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z" fill="#F0AB00"/></svg>
+      The Joule Stand
+    </div>
+
+    <h1>Your AI-Powered Work<br>Companion Is <span>Here</span></h1>
+
+    <p class="hero-sub">Come and see what Joule can do for you — <strong>13 October</strong>, AI Powered Growth Culture Experience Day.</p>
+
+    <p class="hero-sub" style="color:rgba(255,255,255,.55);font-size:.98rem;margin-top:-8px">
+      Find Gabby Doyle at the Joule Stand — whatever stage you're at, there's something here for you.
+    </p>
+
+    <a href="#journey" class="hero-cta">
+      Where are you on your Joule journey?
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#00144A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     2 · JOURNEY CARDS
+     ════════════════════════════════════════════════════════════ -->
+<section class="journey" id="journey">
+  <div class="container">
+    <p class="section-label">Your Joule Journey</p>
+    <h2 class="section-title">Where are you on your Joule journey?</h2>
+    <p class="section-sub">Everyone starts somewhere. Pick the card that sounds most like you and come to the stand — we will meet you where you are.</p>
+
+    <div class="cards-row">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-icon gold">
+          <svg class="icon-svg gold" viewBox="0 0 24 24"><path d="M12 2C10.07 2 8.5 3.57 8.5 5.5c0 .43.08.84.22 1.22L4.4 15.8a1.5 1.5 0 00.58 1.85l6 4a1.5 1.5 0 001.64 0l6-4a1.5 1.5 0 00.58-1.85l-4.32-9.08c.14-.38.22-.79.22-1.22C15.5 3.57 13.93 2 12 2zm0 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
+        </div>
+        <h3>Just Getting Started</h3>
+        <p>Haven't installed Joule yet? No problem. We will get you set up on the spot and show you exactly where to start — it takes minutes, and the difference it makes is immediate.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-icon blue">
+          <svg class="icon-svg blue" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+        </div>
+        <h3>Installed, Not Yet Hooked</h3>
+        <p>Installed but haven't really used it? Come by and we will walk you through the moments in your day where Joule saves you the most time — emails, meeting summaries, research, document drafting.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="card-icon purple">
+          <svg class="icon-svg purple" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6L12 2z"/></svg>
+        </div>
+        <h3>Ready to Level Up</h3>
+        <p>Already using Joule and want to go further? Come ready for advanced tips, power moves, and prompts that separate everyday users from true Joule pros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     3 · CONNECTORS
+     ════════════════════════════════════════════════════════════ -->
+<section class="connectors">
+  <div class="container">
+    <p class="section-label">Essentials</p>
+    <h2 class="section-title">Start here — the 2 connectors you need</h2>
+    <p class="conn-intro">Connectors link Joule to external data and systems — they unlock the full power of skills. Install these two first and everything else builds on top.</p>
+
+    <div class="conn-grid">
+      <div class="conn-tile">
+        <h3>
+          <svg style="display:inline-block;vertical-align:middle;margin-right:6px" width="20" height="20" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" fill="#5D36FF"/></svg>
+          Joule Work Desktop Connector
+        </h3>
+        <p>Your core connection to SAP services and internal tools. This is the foundation — it lets Joule reach into the systems you use every day.</p>
+      </div>
+      <div class="conn-tile">
+        <h3>
+          <svg style="display:inline-block;vertical-align:middle;margin-right:6px" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#5D36FF"/></svg>
+          Knowledge @ SAP Connector
+        </h3>
+        <p>Gives Joule access to SAP's internal knowledge base for smarter, more accurate answers. Think of it as giving Joule a library card to everything SAP knows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     4 · TOP SKILLS
+     ════════════════════════════════════════════════════════════ -->
+<section class="skills">
+  <div class="container">
+    <p class="section-label">Top Skills to Try</p>
+    <h2 class="section-title">Skills are like superpowers you install in seconds</h2>
+    <p class="section-sub">Here are the four to start with. Each one does something genuinely useful — no fluff, no gimmicks.</p>
+
+    <div class="skills-grid">
+      <!-- Skill 1 -->
+      <div class="skill-card">
+        <div class="skill-icon si-gold">
+          <svg class="icon-svg gold" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z"/><path d="M11 12h2v5h-2z"/><path d="M9 14h6v2H9z"/></svg>
+        </div>
+        <h3>Daily Briefing</h3>
+        <p>Ask Joule to brief you every morning. It reads your emails, pulls out action items, deadlines, and commitments — so you start every day knowing exactly what needs your attention.</p>
+      </div>
+      <!-- Skill 2 -->
+      <div class="skill-card">
+        <div class="skill-icon si-blue">
+          <svg class="icon-svg blue" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
+        </div>
+        <h3>PowerPoint Builder</h3>
+        <p>Turn a document, a prompt, or a rough idea into a fully formatted, SAP-branded PowerPoint in minutes. No more fighting with slide layouts at midnight.</p>
+      </div>
+      <!-- Skill 3 -->
+      <div class="skill-card">
+        <div class="skill-icon si-purple">
+          <svg class="icon-svg purple" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+        </div>
+        <h3>One Customer 360</h3>
+        <p>Instant 360-degree view of any SAP customer account — contracts, products, opportunities, and more, all in one place. No more toggling between five systems.</p>
+      </div>
+      <!-- Skill 4 -->
+      <div class="skill-card">
+        <div class="skill-icon si-navy">
+          <svg class="icon-svg navy" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z" fill="#00144A"/></svg>
+        </div>
+        <h3>Meeting Intelligence</h3>
+        <p>Paste in any meeting transcript and get a structured summary: decisions made, action items with owners, open questions, and a follow-up email draft.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     5 · MARKETPLACE
+     ════════════════════════════════════════════════════════════ -->
+<section class="marketplace">
+  <div class="container">
+    <div class="mp-inner">
+      <div class="mp-text">
+        <h2>There are dozens more skills waiting for you</h2>
+        <p>From customer research to AP invoice triage to autonomous enterprise positioning — explore the Joule Skills Marketplace and install what fits your role. Most take less than a minute to set up.</p>
+        <a href="#" class="mp-btn">
+          Browse the Skills Marketplace
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#00144A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     6 · FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-logo">
+      <svg viewBox="0 0 412.4 204" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SAP Logo">
+        <defs><linearGradient id="lg2" x1="206.19" y1="206" x2="206.19" y2="2" gradientTransform="matrix(1 0 0 -1 0 206)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00B8F1"/><stop offset=".02" stop-color="#01B6F0"/><stop offset=".31" stop-color="#0D90D9"/><stop offset=".58" stop-color="#1775C8"/><stop offset=".82" stop-color="#1C65BF"/><stop offset="1" stop-color="#1E5FBB"/></linearGradient></defs>
+        <polyline fill="url(#lg2)" points="0,204 208.4,204 412.4,0 0,0 0,204"/>
+        <path fill="#fff" d="M244.7,38.4h-40.6v96.5l-35.5-96.6h-35.2l-30.3,80.7C100,98.7,79,91.7,62.4,86.4 51.5,82.9,39.8,77.7,40,72c.1-4.7,6.2-9,18.4-8.4 8.2.4,15.4,1.1,29.7,8l14.1-24.5c-13.1-6.6-31.2-10.9-46-10.9h-.1c-17.3,0-31.7,5.6-40.6,14.8-6.2,6.3-9.7,14.8-9.7,23.7C5.5,87.2,10.1,96,19.7,103c8.1,5.9,18.5,9.8,27.6,12.6 11.3,3.5,20.5,6.5,20.4,13-.1,2.4-1,4.7-2.7,6.4-2.8,2.9-7.1,4-13.1,4.1-11.5.2-20-1.6-33.6-9.6L5.8,154.4c14,8,29.9,12.2,46,12.2h2.1c14.2-.2,25.7-4.3,34.9-11.7.5-.4,1-.8,1.5-1.3l-4.1,10.9H123l6.2-18.8c7,2.3,14.3,3.5,21.7,3.4 7.2,0,14.3-1.1,21.2-3.2l6,18.6h60.1v-39h13.1c31.7,0,50.5-16.2,50.5-43.2C301.7,52.2,283.5,38.4,244.7,38.4zM150.9,121c-4.4,0-8.8-.7-13-2.3l12.9-40.6h.2l12.6,40.7C159.6,120.3,155.2,121,150.9,121zM247.1,97.7h-8.9V64.9h8.9c11.9,0,21.4,4,21.4,16.1C268.5,93.7,259,97.6,247.1,97.7"/>
+      </svg>
+    </div>
+    <p class="footer-highlight">
+      Come and see us in person<br>
+      <span class="gold">13 October</span>&ensp;|&ensp;AI Powered Growth Culture Experience Day&ensp;|&ensp;Find <span class="gold">Gabby Doyle</span> at the Joule Stand
+    </p>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.5)">Whatever stage you are at, there is something here for you.</p>
+    <p class="footer-note">This page was created using AI — because that's kind of the point.</p>
+  </div>
+</footer>
+
+</body>
+</html>

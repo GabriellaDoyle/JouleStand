@@ -4,236 +4,321 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Joule Stand — AI Powered Growth Culture Experience Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ── Reset & Base ─────────────────────────────────────────── */
+/* ── Palette ──────────────────────────────────────────────
+   Deep Purple  #0B0024   — darkest background
+   Dark Purple  #140033   — section alt bg
+   Rich Purple  #1E0647   — card bg on dark
+   Violet 700   #7C3AED   — primary brand / buttons
+   Violet 500   #A855F7   — secondary accent
+   Violet 300   #C084FC   — light accent / hover
+   Neon Magenta #D946EF   — hot accent, neon glow
+   Neon Blue    #818CF8   — secondary neon tone
+   Lavender     #EDE9FE   — light bg sections
+   Ghost White  #F9F7FF   — lightest bg
+   White        #FFFFFF
+   ──────────────────────────────────────────────────────── */
+
+/* ── Reset ────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:"72 Brand","72",Arial,Helvetica,sans-serif;color:#1a1a2e;background:#fff;line-height:1.65;font-size:17px;overflow-x:hidden}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#1a1a2e;background:#F9F7FF;line-height:1.65;font-size:16.5px;overflow-x:hidden}
 img,svg{display:block;max-width:100%}
-a{color:#0070F2;text-decoration:none;transition:color .2s}
-a:hover{color:#1B90FF}
+a{color:#7C3AED;text-decoration:none;transition:color .2s}
+a:hover{color:#A855F7}
 
-/* ── Utility ──────────────────────────────────────────────── */
-.container{max-width:1120px;margin:0 auto;padding:0 28px}
-.section-label{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
-.section-title{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:18px}
-.section-sub{font-size:1.05rem;color:#444;max-width:680px;line-height:1.7}
+/* ── Layout ───────────────────────────────────────────────── */
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.section-label{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;line-height:1.18;margin-bottom:16px}
+.section-sub{font-size:1rem;max-width:640px;line-height:1.72}
+
+/* ── Neon icon base ───────────────────────────────────────── */
+.neon-icon{width:48px;height:48px;margin-bottom:18px;flex-shrink:0}
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .hero{
-  position:relative;
-  background:#00144A;
+  background:#0B0024;
   color:#fff;
-  padding:90px 0 80px;
+  padding:72px 0 68px;
+  position:relative;
   overflow:hidden;
 }
 .hero::before{
-  content:"";
-  position:absolute;inset:0;
+  content:"";position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 70% 60% at 80% 30%,rgba(161,0,194,.18) 0%,transparent 70%),
-    radial-gradient(ellipse 50% 60% at 20% 80%,rgba(93,54,255,.14) 0%,transparent 70%);
+    radial-gradient(ellipse 50% 60% at 70% 25%,rgba(124,58,237,.14) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 50% at 20% 80%,rgba(217,70,239,.08) 0%,transparent 60%);
   pointer-events:none;
 }
-.hero .container{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.hero .container{position:relative;z-index:1}
+.hero-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:44px}
+.hero-sap-logo{width:72px;opacity:.85;flex-shrink:0}
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(240,171,0,.15);border:1px solid rgba(240,171,0,.4);
-  border-radius:100px;padding:6px 18px;font-size:.82rem;font-weight:600;color:#F0AB00;
+  background:rgba(124,58,237,.18);border:1px solid rgba(168,85,247,.35);
+  border-radius:100px;padding:5px 16px;font-size:.78rem;font-weight:600;color:#C084FC;
+  letter-spacing:.02em;
 }
-.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.15;max-width:700px}
-.hero h1 span{
-  background:linear-gradient(135deg,#A100C2,#5D36FF);
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.1;max-width:680px;margin-bottom:16px}
+.hero h1 .accent{
+  background:linear-gradient(135deg,#A855F7,#D946EF);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
 }
-.hero-sub{font-size:1.15rem;color:rgba(255,255,255,.78);max-width:600px;line-height:1.7}
-.hero-cta{
-  display:inline-flex;align-items:center;gap:8px;margin-top:8px;
-  background:#F0AB00;color:#00144A;font-weight:700;font-size:.95rem;
-  padding:14px 30px;border-radius:10px;transition:transform .2s,box-shadow .2s;
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.65);max-width:560px;line-height:1.7;margin-bottom:8px}
+.hero-event{font-size:.88rem;color:rgba(255,255,255,.38);margin-top:20px;line-height:1.6}
+.hero-event strong{color:rgba(255,255,255,.6)}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:inherit;font-weight:700;font-size:.9rem;
+  padding:13px 26px;border-radius:10px;
+  transition:transform .2s,box-shadow .2s;
+  border:none;cursor:pointer;text-decoration:none;
 }
-.hero-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(240,171,0,.35);color:#00144A}
-.hero-sap-logo{position:absolute;top:28px;right:28px;width:80px;opacity:.85}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,#7C3AED,#A855F7);color:#fff}
+.btn-primary:hover{box-shadow:0 8px 32px rgba(124,58,237,.45);color:#fff}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25)}
+.btn-outline:hover{border-color:#C084FC;color:#C084FC;box-shadow:0 8px 28px rgba(168,85,247,.15)}
+.btn-arrow{width:16px;height:16px}
 
-/* ── Journey Cards ────────────────────────────────────────── */
-.journey{padding:80px 0;background:#f8f8fb}
-.journey .section-label{color:#A100C2}
-.cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:36px}
+/* ── Journey ──────────────────────────────────────────────── */
+.journey{padding:72px 0;background:#F9F7FF}
+.journey .section-label{color:#7C3AED}
+.journey .section-title{color:#1a1a2e}
+.journey .section-sub{color:#555}
+.cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:32px}
 .card{
-  background:#fff;border-radius:16px;padding:36px 30px;
-  border:1px solid #e4e4ec;
+  background:#fff;border-radius:16px;padding:32px 28px;
+  border:1px solid rgba(124,58,237,.08);
+  box-shadow:0 1px 4px rgba(124,58,237,.04);
   transition:transform .25s,box-shadow .25s;
 }
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,20,74,.07)}
-.card-icon{
-  width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
-  margin-bottom:20px;font-size:1.5rem;
-}
-.card-icon.gold{background:rgba(240,171,0,.12)}
-.card-icon.blue{background:rgba(27,144,255,.1)}
-.card-icon.purple{background:rgba(161,0,194,.1)}
-.card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#00144A}
-.card p{font-size:.94rem;color:#555;line-height:1.7}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(124,58,237,.1)}
+.card h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;color:#1a1a2e}
+.card p{font-size:.92rem;color:#555;line-height:1.7}
 
 /* ── Connectors ───────────────────────────────────────────── */
-.connectors{padding:80px 0;background:#fff}
-.connectors .section-label{color:#0070F2}
-.conn-intro{font-size:1rem;color:#555;margin-bottom:36px;max-width:680px}
-.conn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.connectors{padding:72px 0;background:#fff}
+.connectors .section-label{color:#A855F7}
+.connectors .section-title{color:#1a1a2e}
+.conn-intro{font-size:.95rem;color:#555;margin-bottom:32px;max-width:640px;line-height:1.7}
+.conn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .conn-tile{
-  border-radius:16px;padding:32px 28px;position:relative;overflow:hidden;
-  border:1px solid #e4e4ec;
+  background:#F9F7FF;border-radius:14px;padding:28px 26px;
+  border-left:4px solid #7C3AED;
+  box-shadow:0 1px 4px rgba(124,58,237,.06);
 }
-.conn-tile::before{
-  content:"";position:absolute;top:0;left:0;width:4px;height:100%;
-  background:linear-gradient(180deg,#A100C2,#5D36FF);border-radius:4px 0 0 4px;
-}
-.conn-tile h3{font-size:1.1rem;font-weight:700;color:#00144A;margin-bottom:8px}
-.conn-tile p{font-size:.92rem;color:#555;line-height:1.65}
+.conn-tile h3{font-size:1.05rem;font-weight:700;color:#1a1a2e;margin-bottom:8px}
+.conn-tile p{font-size:.9rem;color:#555;line-height:1.65}
 
 /* ── Skills ───────────────────────────────────────────────── */
-.skills{padding:80px 0;background:#f8f8fb}
-.skills .section-label{color:#F0AB00}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:36px}
+.skills{padding:72px 0;background:#F9F7FF}
+.skills .section-label{color:#D946EF}
+.skills .section-title{color:#1a1a2e}
+.skills .section-sub{color:#555}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:32px}
 .skill-card{
-  background:#fff;border-radius:16px;padding:32px 26px;
-  border:1px solid #e4e4ec;
+  background:#fff;border-radius:16px;padding:28px 24px;
+  border:1px solid rgba(124,58,237,.08);
+  box-shadow:0 1px 4px rgba(124,58,237,.04);
   transition:transform .25s,box-shadow .25s;
 }
-.skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,20,74,.07)}
-.skill-icon{
-  width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-  margin-bottom:18px;font-size:1.25rem;
-}
-.skill-icon.si-gold{background:rgba(240,171,0,.12)}
-.skill-icon.si-blue{background:rgba(27,144,255,.1)}
-.skill-icon.si-purple{background:rgba(161,0,194,.1)}
-.skill-icon.si-navy{background:rgba(0,20,74,.08)}
-.skill-card h3{font-size:1.05rem;font-weight:700;color:#00144A;margin-bottom:8px}
-.skill-card p{font-size:.9rem;color:#555;line-height:1.65}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(124,58,237,.1)}
+.skill-card h3{font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:8px}
+.skill-card p{font-size:.88rem;color:#555;line-height:1.65}
 
-/* ── Marketplace ──────────────────────────────────────────── */
-.marketplace{
-  padding:64px 0;background:#fff;
+/* ── Resources ────────────────────────────────────────────── */
+.resources{padding:72px 0;background:#fff}
+.resources .section-label{color:#7C3AED}
+.resources .section-title{color:#1a1a2e}
+.res-list{display:flex;flex-direction:column;gap:14px;margin-top:32px;max-width:720px}
+.res-item{
+  display:flex;align-items:center;gap:16px;
+  background:#F9F7FF;border-radius:14px;padding:18px 22px;
+  transition:transform .2s,box-shadow .2s;
+  text-decoration:none;color:inherit;
+  border:1px solid rgba(124,58,237,.06);
 }
-.mp-inner{
-  background:#00144A;border-radius:20px;padding:56px 48px;color:#fff;
-  display:flex;flex-wrap:wrap;align-items:center;gap:32px;
-  position:relative;overflow:hidden;
+.res-item:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,.08);color:inherit}
+.res-icon-wrap{flex-shrink:0}
+.res-icon-wrap .neon-icon{width:32px;height:32px;margin-bottom:0}
+.res-body{flex:1;min-width:0}
+.res-body h3{font-size:.95rem;font-weight:700;color:#1a1a2e;margin-bottom:3px}
+.res-body p{font-size:.84rem;color:#666;line-height:1.55;margin:0}
+.res-arrow{color:#C084FC;font-size:.85rem;flex-shrink:0;transition:transform .2s}
+.res-item:hover .res-arrow{transform:translateX(3px);color:#7C3AED}
+
+/* ── Jumpstart ────────────────────────────────────────────── */
+.jumpstart{
+  padding:72px 0;
+  background:linear-gradient(135deg,#140033 0%,#1E0647 50%,#0B0024 100%);
+  color:#fff;
 }
-.mp-inner::after{
-  content:"";position:absolute;right:-60px;bottom:-60px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(240,171,0,.18),transparent 70%);
-  pointer-events:none;
+.jumpstart .section-label{color:#C084FC}
+.jumpstart .section-title{color:#fff}
+.jumpstart-sub{font-size:1rem;color:rgba(255,255,255,.6);max-width:600px;line-height:1.7;margin-bottom:32px}
+.jp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.jp-card{
+  background:rgba(255,255,255,.06);backdrop-filter:blur(8px);
+  border:1px solid rgba(168,85,247,.2);
+  border-radius:14px;padding:24px 22px;
+  display:flex;flex-direction:column;gap:10px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+  text-decoration:none;color:#fff;
 }
-.mp-text{flex:1 1 420px;position:relative;z-index:1}
-.mp-text h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;margin-bottom:14px;line-height:1.25}
-.mp-text p{font-size:1rem;color:rgba(255,255,255,.75);line-height:1.7;max-width:560px}
-.mp-btn{
-  display:inline-flex;align-items:center;gap:8px;margin-top:20px;
-  background:#F0AB00;color:#00144A;font-weight:700;font-size:.95rem;
-  padding:14px 30px;border-radius:10px;transition:transform .2s,box-shadow .2s;
-  position:relative;z-index:1;
+.jp-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 36px rgba(124,58,237,.3);
+  border-color:rgba(168,85,247,.45);
+  color:#fff;
 }
-.mp-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(240,171,0,.35);color:#00144A}
+.jp-card h3{font-size:.95rem;font-weight:700;line-height:1.3}
+.jp-card p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.55;margin:0}
+.jp-card .dl-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.8rem;font-weight:700;color:#C084FC;margin-top:auto;padding-top:8px;
+  transition:color .2s;
+}
+.jp-card:hover .dl-label{color:#D946EF}
 
 /* ── Footer ───────────────────────────────────────────────── */
 .site-footer{
-  background:#00144A;color:rgba(255,255,255,.8);padding:56px 0 40px;
+  background:#0B0024;color:rgba(255,255,255,.7);padding:52px 0 36px;
   text-align:center;
 }
-.footer-highlight{
-  font-size:clamp(1rem,2.5vw,1.25rem);font-weight:600;color:#fff;margin-bottom:14px;line-height:1.5;
-}
-.footer-highlight .gold{color:#F0AB00}
-.footer-note{font-size:.82rem;color:rgba(255,255,255,.4);margin-top:28px;font-style:italic}
-.footer-logo{margin:0 auto 24px;width:64px;opacity:.7}
-
-/* ── SVG icon helpers ─────────────────────────────────────── */
-.icon-svg{width:28px;height:28px}
-.icon-svg.gold path,.icon-svg.gold polygon{fill:#F0AB00}
-.icon-svg.blue path,.icon-svg.blue polygon{fill:#1B90FF}
-.icon-svg.purple path,.icon-svg.purple polygon{fill:#A100C2}
-.icon-svg.navy path,.icon-svg.navy polygon{fill:#00144A}
+.footer-logo{margin:0 auto 20px;width:60px;opacity:.65}
+.footer-line{font-size:1rem;font-weight:600;color:#fff;line-height:1.6;margin-bottom:4px}
+.footer-line .accent{color:#C084FC}
+.footer-note{font-size:.78rem;color:rgba(255,255,255,.28);margin-top:24px;font-style:italic}
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media(max-width:700px){
-  .hero{padding:64px 0 56px}
-  .hero h1{font-size:1.8rem}
-  .hero-sap-logo{width:60px;top:20px;right:20px}
-  .mp-inner{padding:36px 24px}
-  .cards-row,.skills-grid,.conn-grid{grid-template-columns:1fr}
+  .hero{padding:52px 0 48px}
+  .hero h1{font-size:1.75rem}
+  .hero-top{flex-direction:column;align-items:flex-start;gap:16px}
+  .hero-sap-logo{width:56px}
+  .hero-buttons{flex-direction:column}
+  .btn{width:100%;justify-content:center}
+  .cards-row,.skills-grid,.conn-grid,.jp-grid{grid-template-columns:1fr}
+  .res-item{gap:12px}
+  .res-arrow{display:none}
+}
+@media(min-width:701px) and (max-width:960px){
+  .cards-row{grid-template-columns:1fr 1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .jp-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
+<!-- ══════════════════════════════════════════════════════════════
+     SVG DEFS — Neon glow filter (reused by all icons)
+     ══════════════════════════════════════════════════════════════ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <filter id="neon" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <linearGradient id="grad-v" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#D946EF"/>
+    </linearGradient>
+    <linearGradient id="grad-b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+</svg>
+
 <!-- ════════════════════════════════════════════════════════════
-     1 · HERO
+     1. HERO
      ════════════════════════════════════════════════════════════ -->
 <section class="hero">
-  <!-- SAP Logo -->
-  <a href="https://www.sap.com" aria-label="SAP" class="hero-sap-logo">
-    <svg viewBox="0 0 412.4 204" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SAP Logo">
-      <defs><linearGradient id="lg" x1="206.19" y1="206" x2="206.19" y2="2" gradientTransform="matrix(1 0 0 -1 0 206)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00B8F1"/><stop offset=".02" stop-color="#01B6F0"/><stop offset=".31" stop-color="#0D90D9"/><stop offset=".58" stop-color="#1775C8"/><stop offset=".82" stop-color="#1C65BF"/><stop offset="1" stop-color="#1E5FBB"/></linearGradient></defs>
-      <polyline fill="url(#lg)" points="0,204 208.4,204 412.4,0 0,0 0,204"/>
-      <path fill="#fff" d="M244.7,38.4h-40.6v96.5l-35.5-96.6h-35.2l-30.3,80.7C100,98.7,79,91.7,62.4,86.4 51.5,82.9,39.8,77.7,40,72c.1-4.7,6.2-9,18.4-8.4 8.2.4,15.4,1.1,29.7,8l14.1-24.5c-13.1-6.6-31.2-10.9-46-10.9h-.1c-17.3,0-31.7,5.6-40.6,14.8-6.2,6.3-9.7,14.8-9.7,23.7C5.5,87.2,10.1,96,19.7,103c8.1,5.9,18.5,9.8,27.6,12.6 11.3,3.5,20.5,6.5,20.4,13-.1,2.4-1,4.7-2.7,6.4-2.8,2.9-7.1,4-13.1,4.1-11.5.2-20-1.6-33.6-9.6L5.8,154.4c14,8,29.9,12.2,46,12.2h2.1c14.2-.2,25.7-4.3,34.9-11.7.5-.4,1-.8,1.5-1.3l-4.1,10.9H123l6.2-18.8c7,2.3,14.3,3.5,21.7,3.4 7.2,0,14.3-1.1,21.2-3.2l6,18.6h60.1v-39h13.1c31.7,0,50.5-16.2,50.5-43.2C301.7,52.2,283.5,38.4,244.7,38.4zM150.9,121c-4.4,0-8.8-.7-13-2.3l12.9-40.6h.2l12.6,40.7C159.6,120.3,155.2,121,150.9,121zM247.1,97.7h-8.9V64.9h8.9c11.9,0,21.4,4,21.4,16.1C268.5,93.7,259,97.6,247.1,97.7"/>
-    </svg>
-  </a>
-
   <div class="container">
-    <div class="hero-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z" fill="#F0AB00"/></svg>
-      The Joule Stand
+    <div class="hero-top">
+      <div class="hero-badge">The Joule Stand</div>
+      <a href="https://www.sap.com" aria-label="SAP" class="hero-sap-logo" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 412.4 204" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SAP Logo">
+          <defs><linearGradient id="lg" x1="206.19" y1="206" x2="206.19" y2="2" gradientTransform="matrix(1 0 0 -1 0 206)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00B8F1"/><stop offset=".02" stop-color="#01B6F0"/><stop offset=".31" stop-color="#0D90D9"/><stop offset=".58" stop-color="#1775C8"/><stop offset=".82" stop-color="#1C65BF"/><stop offset="1" stop-color="#1E5FBB"/></linearGradient></defs>
+          <polyline fill="url(#lg)" points="0,204 208.4,204 412.4,0 0,0 0,204"/>
+          <path fill="#fff" d="M244.7,38.4h-40.6v96.5l-35.5-96.6h-35.2l-30.3,80.7C100,98.7,79,91.7,62.4,86.4 51.5,82.9,39.8,77.7,40,72c.1-4.7,6.2-9,18.4-8.4 8.2.4,15.4,1.1,29.7,8l14.1-24.5c-13.1-6.6-31.2-10.9-46-10.9h-.1c-17.3,0-31.7,5.6-40.6,14.8-6.2,6.3-9.7,14.8-9.7,23.7C5.5,87.2,10.1,96,19.7,103c8.1,5.9,18.5,9.8,27.6,12.6 11.3,3.5,20.5,6.5,20.4,13-.1,2.4-1,4.7-2.7,6.4-2.8,2.9-7.1,4-13.1,4.1-11.5.2-20-1.6-33.6-9.6L5.8,154.4c14,8,29.9,12.2,46,12.2h2.1c14.2-.2,25.7-4.3,34.9-11.7.5-.4,1-.8,1.5-1.3l-4.1,10.9H123l6.2-18.8c7,2.3,14.3,3.5,21.7,3.4 7.2,0,14.3-1.1,21.2-3.2l6,18.6h60.1v-39h13.1c31.7,0,50.5-16.2,50.5-43.2C301.7,52.2,283.5,38.4,244.7,38.4zM150.9,121c-4.4,0-8.8-.7-13-2.3l12.9-40.6h.2l12.6,40.7C159.6,120.3,155.2,121,150.9,121zM247.1,97.7h-8.9V64.9h8.9c11.9,0,21.4,4,21.4,16.1C268.5,93.7,259,97.6,247.1,97.7"/>
+        </svg>
+      </a>
     </div>
 
-    <h1>Your AI-Powered Work<br>Companion Is <span>Here</span></h1>
+    <h1>Your AI-Powered Work<br>Companion Is <span class="accent">Here</span></h1>
+    <p class="hero-sub">Come and see what Joule can do for you.</p>
+    <p class="hero-event"><strong>13 October</strong> &nbsp;|&nbsp; AI Powered Growth Culture Experience Day &nbsp;|&nbsp; Find <strong>Gabby</strong> at the Joule Stand</p>
 
-    <p class="hero-sub">Come and see what Joule can do for you — <strong>13 October</strong>, AI Powered Growth Culture Experience Day.</p>
-
-    <p class="hero-sub" style="color:rgba(255,255,255,.55);font-size:.98rem;margin-top:-8px">
-      Find Gabby Doyle at the Joule Stand — whatever stage you're at, there's something here for you.
-    </p>
-
-    <a href="#journey" class="hero-cta">
-      Where are you on your Joule journey?
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#00144A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <div class="hero-buttons">
+      <a href="https://hub.joule.only.sap" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        Open Joule Work Desktop
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://skills.cloud.sap" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        Browse the Skills Marketplace
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
-     2 · JOURNEY CARDS
+     2. JOURNEY CARDS
      ════════════════════════════════════════════════════════════ -->
 <section class="journey" id="journey">
   <div class="container">
     <p class="section-label">Your Joule Journey</p>
     <h2 class="section-title">Where are you on your Joule journey?</h2>
-    <p class="section-sub">Everyone starts somewhere. Pick the card that sounds most like you and come to the stand — we will meet you where you are.</p>
+    <p class="section-sub" style="color:#555">Everyone starts somewhere. Pick the card that sounds most like you and come to the stand.</p>
 
     <div class="cards-row">
-      <!-- Card 1 -->
+      <!-- Card 1 — Rocket -->
       <div class="card">
-        <div class="card-icon gold">
-          <svg class="icon-svg gold" viewBox="0 0 24 24"><path d="M12 2C10.07 2 8.5 3.57 8.5 5.5c0 .43.08.84.22 1.22L4.4 15.8a1.5 1.5 0 00.58 1.85l6 4a1.5 1.5 0 001.64 0l6-4a1.5 1.5 0 00.58-1.85l-4.32-9.08c.14-.38.22-.79.22-1.22C15.5 3.57 13.93 2 12 2zm0 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
-        </div>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <path d="M24 4c-3 6-5 13-5 20h10c0-7-2-14-5-20z" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 24l-5 6h6" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M29 24l5 6h-6" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 30h8v6a4 4 0 01-8 0v-6z" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="18" r="2.5" stroke="#D946EF" stroke-width="1.8"/>
+          <path d="M22 36l-2 8M26 36l2 8" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+        </svg>
         <h3>Just Getting Started</h3>
-        <p>Haven't installed Joule yet? No problem. We will get you set up on the spot and show you exactly where to start — it takes minutes, and the difference it makes is immediate.</p>
+        <p>Haven't installed Joule yet? No problem. We'll get you set up on the spot and show you exactly where to start — it takes minutes, and the difference it makes is immediate.</p>
       </div>
-      <!-- Card 2 -->
+
+      <!-- Card 2 — Lightbulb -->
       <div class="card">
-        <div class="card-icon blue">
-          <svg class="icon-svg blue" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
-        </div>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <path d="M19 32v3a5 5 0 0010 0v-3" stroke="url(#grad-b)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 6a12 12 0 00-8 21c1.5 1.5 3 3 3 5h10c0-2 1.5-3.5 3-5A12 12 0 0024 6z" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M20 36h8M21 39h6" stroke="#818CF8" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M24 6V3" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
+          <path d="M12 18H9M36 18h3M14 10l-2-2M34 10l2-2" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        </svg>
         <h3>Installed, Not Yet Hooked</h3>
-        <p>Installed but haven't really used it? Come by and we will walk you through the moments in your day where Joule saves you the most time — emails, meeting summaries, research, document drafting.</p>
+        <p>Installed but haven't really used it? Come by and we'll walk you through the moments in your day where Joule saves you the most time — emails, meeting summaries, research, document drafting.</p>
       </div>
-      <!-- Card 3 -->
+
+      <!-- Card 3 — Trophy -->
       <div class="card">
-        <div class="card-icon purple">
-          <svg class="icon-svg purple" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6L12 2z"/></svg>
-        </div>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <path d="M16 8h16v12a8 8 0 01-16 0V8z" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M16 12h-4a4 4 0 000 8h4M32 12h4a4 4 0 010 8h-4" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 28v4" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round"/>
+          <rect x="18" y="32" width="12" height="4" rx="1" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M16 40h16" stroke="#818CF8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15 36h18" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <path d="M24 12l1.5 3 3.5.5-2.5 2.5.5 3.5-3-1.5-3 1.5.5-3.5L19 15.5l3.5-.5z" stroke="#D946EF" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
         <h3>Ready to Level Up</h3>
         <p>Already using Joule and want to go further? Come ready for advanced tips, power moves, and prompts that separate everyday users from true Joule pros.</p>
       </div>
@@ -242,99 +327,283 @@ a:hover{color:#1B90FF}
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
-     3 · CONNECTORS
+     3. CONNECTORS
      ════════════════════════════════════════════════════════════ -->
 <section class="connectors">
   <div class="container">
     <p class="section-label">Essentials</p>
     <h2 class="section-title">Start here — the 2 connectors you need</h2>
-    <p class="conn-intro">Connectors link Joule to external data and systems — they unlock the full power of skills. Install these two first and everything else builds on top.</p>
+    <p class="conn-intro">Connectors link Joule to external data and systems — they unlock the full power of skills. Install these two first.</p>
 
     <div class="conn-grid">
       <div class="conn-tile">
-        <h3>
-          <svg style="display:inline-block;vertical-align:middle;margin-right:6px" width="20" height="20" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" fill="#5D36FF"/></svg>
-          Joule Work Desktop Connector
-        </h3>
-        <p>Your core connection to SAP services and internal tools. This is the foundation — it lets Joule reach into the systems you use every day.</p>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)" style="margin-bottom:14px">
+          <rect x="8" y="10" width="32" height="22" rx="3" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M8 17h32" stroke="#818CF8" stroke-width="1.5"/>
+          <circle cx="12" cy="13.5" r="1.2" fill="#D946EF"/>
+          <circle cx="16" cy="13.5" r="1.2" fill="#A855F7"/>
+          <circle cx="20" cy="13.5" r="1.2" fill="#818CF8"/>
+          <path d="M16 36l4-4M32 36l-4-4" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M13 38h22" stroke="#818CF8" stroke-width="2" stroke-linecap="round"/>
+          <rect x="15" y="22" width="7" height="5" rx="1" stroke="#D946EF" stroke-width="1.5"/>
+          <rect x="26" y="22" width="7" height="5" rx="1" stroke="#818CF8" stroke-width="1.5"/>
+        </svg>
+        <h3>Joule Work Desktop Connector</h3>
+        <p>Your core connection to SAP services and internal tools. Required for most skills to function.</p>
       </div>
       <div class="conn-tile">
-        <h3>
-          <svg style="display:inline-block;vertical-align:middle;margin-right:6px" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#5D36FF"/></svg>
-          Knowledge @ SAP Connector
-        </h3>
-        <p>Gives Joule access to SAP's internal knowledge base for smarter, more accurate answers. Think of it as giving Joule a library card to everything SAP knows.</p>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)" style="margin-bottom:14px">
+          <path d="M8 12a4 4 0 014-4h24a4 4 0 014 4v1H8v-1z" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M6 13h36v8a3 3 0 01-3 3H9a3 3 0 01-3-3v-8z" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M10 24v12a4 4 0 004 4h20a4 4 0 004-4V24" stroke="#818CF8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 13v5a2 2 0 004 0v-5" stroke="#D946EF" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24" cy="32" r="3" stroke="#D946EF" stroke-width="1.5"/>
+          <path d="M24 29v-2" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Knowledge @ SAP Connector</h3>
+        <p>Gives Joule access to SAP's internal knowledge base for smarter, more accurate answers on SAP topics.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
-     4 · TOP SKILLS
+     4. TOP SKILLS
      ════════════════════════════════════════════════════════════ -->
 <section class="skills">
   <div class="container">
     <p class="section-label">Top Skills to Try</p>
-    <h2 class="section-title">Skills are like superpowers you install in seconds</h2>
-    <p class="section-sub">Here are the four to start with. Each one does something genuinely useful — no fluff, no gimmicks.</p>
+    <h2 class="section-title">Skills are superpowers you install in seconds</h2>
+    <p class="section-sub" style="color:#555">Start with these four. Each one does something genuinely useful — no fluff, no gimmicks.</p>
 
     <div class="skills-grid">
-      <!-- Skill 1 -->
+      <!-- Daily Briefing — Envelope/Inbox -->
       <div class="skill-card">
-        <div class="skill-icon si-gold">
-          <svg class="icon-svg gold" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z"/><path d="M11 12h2v5h-2z"/><path d="M9 14h6v2H9z"/></svg>
-        </div>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <rect x="6" y="10" width="36" height="28" rx="4" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M6 16l18 11 18-11" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 34l12-10M42 34L30 24" stroke="url(#grad-b)" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+          <circle cx="38" cy="12" r="5" fill="#0B0024" stroke="#D946EF" stroke-width="1.8"/>
+          <path d="M36 12h4M38 10v4" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
         <h3>Daily Briefing</h3>
-        <p>Ask Joule to brief you every morning. It reads your emails, pulls out action items, deadlines, and commitments — so you start every day knowing exactly what needs your attention.</p>
+        <p>Ask Joule to brief you every morning. It reads your emails, pulls out action items, deadlines, and commitments — so you start the day knowing exactly what needs your attention.</p>
       </div>
-      <!-- Skill 2 -->
+
+      <!-- PowerPoint Builder — Slides -->
       <div class="skill-card">
-        <div class="skill-icon si-blue">
-          <svg class="icon-svg blue" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
-        </div>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <rect x="6" y="8" width="36" height="26" rx="3" stroke="url(#grad-v)" stroke-width="2"/>
+          <rect x="12" y="14" width="10" height="7" rx="1.5" stroke="#D946EF" stroke-width="1.8"/>
+          <path d="M26 15h10M26 18h7M26 21h10" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 26h24" stroke="#818CF8" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
+          <path d="M12 29h16" stroke="#818CF8" stroke-width="1.2" stroke-linecap="round" opacity=".3"/>
+          <path d="M18 34l-2 6M30 34l2 6M14 40h20" stroke="url(#grad-b)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <h3>PowerPoint Builder</h3>
-        <p>Turn a document, a prompt, or a rough idea into a fully formatted, SAP-branded PowerPoint in minutes. No more fighting with slide layouts at midnight.</p>
+        <p>Turn a document, a prompt, or a rough idea into a fully formatted, SAP-branded PowerPoint in minutes.</p>
       </div>
-      <!-- Skill 3 -->
+
+      <!-- One Customer 360 — Radar/Target -->
       <div class="skill-card">
-        <div class="skill-icon si-purple">
-          <svg class="icon-svg purple" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-        </div>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <circle cx="24" cy="24" r="16" stroke="url(#grad-v)" stroke-width="2"/>
+          <circle cx="24" cy="24" r="10" stroke="#818CF8" stroke-width="1.5" opacity=".6"/>
+          <circle cx="24" cy="24" r="4" stroke="#D946EF" stroke-width="1.8"/>
+          <path d="M24 4v4M24 40v4M4 24h4M40 24h4" stroke="url(#grad-b)" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <path d="M24 24l8-12" stroke="#D946EF" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="32" cy="12" r="3" stroke="#D946EF" stroke-width="1.5"/>
+        </svg>
         <h3>One Customer 360</h3>
-        <p>Instant 360-degree view of any SAP customer account — contracts, products, opportunities, and more, all in one place. No more toggling between five systems.</p>
+        <p>Instant 360-degree view of any SAP customer account — contracts, products, opportunities, and more, all in one place.</p>
       </div>
-      <!-- Skill 4 -->
+
+      <!-- Meeting Intelligence — Mic/Waveform -->
       <div class="skill-card">
-        <div class="skill-icon si-navy">
-          <svg class="icon-svg navy" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z" fill="#00144A"/></svg>
-        </div>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+          <rect x="18" y="6" width="12" height="22" rx="6" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M12 22a12 12 0 0024 0" stroke="#818CF8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 34v6M18 40h12" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 14h4M22 18h4" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M38 14v4M41 12v8M44 15v3" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          <path d="M4 14v4M7 12v8M10 15v3" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        </svg>
         <h3>Meeting Intelligence</h3>
-        <p>Paste in any meeting transcript and get a structured summary: decisions made, action items with owners, open questions, and a follow-up email draft.</p>
+        <p>Paste in any meeting transcript and get a structured summary: decisions, action items with owners, open questions, and a follow-up email draft.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
-     5 · MARKETPLACE
+     5. LEARN & LEVEL UP
      ════════════════════════════════════════════════════════════ -->
-<section class="marketplace">
+<section class="resources">
   <div class="container">
-    <div class="mp-inner">
-      <div class="mp-text">
-        <h2>There are dozens more skills waiting for you</h2>
-        <p>From customer research to AP invoice triage to autonomous enterprise positioning — explore the Joule Skills Marketplace and install what fits your role. Most take less than a minute to set up.</p>
-        <a href="#" class="mp-btn">
-          Browse the Skills Marketplace
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#00144A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
+    <p class="section-label">Learn &amp; Level Up</p>
+    <h2 class="section-title">Ready to go deeper? Here are your go-to resources.</h2>
+
+    <div class="res-list">
+      <a href="https://pages.github.tools.sap/CPIT-Joule-Content/Joule-Internal-Adoption-Knowledge-Hub/joule-work-desktop/" target="_blank" rel="noopener noreferrer" class="res-item">
+        <div class="res-icon-wrap">
+          <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+            <path d="M6 10h16l2 4h18v24H6V10z" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M12 22h24M12 28h16" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="res-body">
+          <h3>Joule Knowledge Hub</h3>
+          <p>Everything Joule Work Desktop in one place — guides, walkthroughs, and best practices.</p>
+        </div>
+        <span class="res-arrow">&rarr;</span>
+      </a>
+
+      <a href="https://sap.plateau.com/learning/user/theming/updateThemingInfo.do?4102444799=0" target="_blank" rel="noopener noreferrer" class="res-item">
+        <div class="res-icon-wrap">
+          <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+            <path d="M8 20l16-10 16 10" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 10v24" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+            <path d="M10 32c4 4 10 6 14 6s10-2 14-6" stroke="#D946EF" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M40 20v12" stroke="url(#grad-b)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="40" cy="34" r="2.5" stroke="#D946EF" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="res-body">
+          <h3>Mandatory e-Learning</h3>
+          <p>Complete your required Joule Work Desktop course on SAP Plateau.</p>
+        </div>
+        <span class="res-arrow">&rarr;</span>
+      </a>
+
+      <a href="https://dh.xg.int.sap/#/hero/mission-tracks/171573" target="_blank" rel="noopener noreferrer" class="res-item">
+        <div class="res-icon-wrap">
+          <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+            <path d="M18 6l-4 8h8L18 6z" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M14 14h8v6h-8z" stroke="#818CF8" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="18" cy="28" r="3" stroke="#D946EF" stroke-width="1.8"/>
+            <path d="M18 31v9M14 40h8" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M28 16h10M28 22h14M28 28h10M28 34h8" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
+          </svg>
+        </div>
+        <div class="res-body">
+          <h3>SAP Experience Garage</h3>
+          <p>Advanced hands-on training and custom skill creation.</p>
+        </div>
+        <span class="res-arrow">&rarr;</span>
+      </a>
+
+      <a href="https://dam.sap.com/mac/app/p/pdf/asset/preview/BXfQEvn" target="_blank" rel="noopener noreferrer" class="res-item">
+        <div class="res-icon-wrap">
+          <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+            <path d="M14 6h14l10 10v26a2 2 0 01-2 2H14a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M28 6v10h10" stroke="#818CF8" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M18 24h12M18 30h8" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="34" cy="36" r="6" fill="#0B0024" stroke="#D946EF" stroke-width="1.5"/>
+            <path d="M32.5 36l1.5 1.5 3-3" stroke="#D946EF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="res-body">
+          <h3>Joule Work Desktop FAQ</h3>
+          <p>Answers to the most common setup and usage questions.</p>
+        </div>
+        <span class="res-arrow">&rarr;</span>
+      </a>
+
+      <a href="https://skills.cloud.sap" target="_blank" rel="noopener noreferrer" class="res-item">
+        <div class="res-icon-wrap">
+          <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)">
+            <circle cx="24" cy="24" r="14" stroke="url(#grad-v)" stroke-width="2"/>
+            <path d="M18 20a6 6 0 0112 0c0 4-6 4-6 8" stroke="#818CF8" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="24" cy="34" r="1.5" fill="#D946EF"/>
+            <path d="M24 6v3M24 39v3M6 24h3M39 24h3" stroke="url(#grad-b)" stroke-width="1.2" stroke-linecap="round" opacity=".35"/>
+          </svg>
+        </div>
+        <div class="res-body">
+          <h3>Skills Marketplace</h3>
+          <p>Browse and install skills built by the SAP community.</p>
+        </div>
+        <span class="res-arrow">&rarr;</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
-     6 · FOOTER
+     6. JUMPSTART PACK
+     ════════════════════════════════════════════════════════════ -->
+<section class="jumpstart">
+  <div class="container">
+    <p class="section-label">Download</p>
+    <h2 class="section-title">New to Joule? Grab your Jumpstart Pack</h2>
+    <p class="jumpstart-sub">Role-specific guides packed with curated skills, top prompts, and quick-start instructions. Pick the one that fits you — or take them all.</p>
+
+    <div class="jp-grid">
+      <a href="Joule Jumpstart - Skills for Sales and Presales.pdf" class="jp-card" download>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)" style="margin-bottom:8px">
+          <circle cx="24" cy="16" r="5" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M14 36v-4a10 10 0 0120 0v4" stroke="url(#grad-v)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 21v5l6 3" stroke="#D946EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M34 14h6M40 14l-3-3M40 14l-3 3" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/>
+        </svg>
+        <h3>Sales &amp; Presales</h3>
+        <p>Account research, meeting minutes, inbox triage, branded decks, customer overviews, and competitive intel.</p>
+        <span class="dl-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 18h16" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download PDF
+        </span>
+      </a>
+
+      <a href="Joule Jumpstart - Skills for Customer Success.pdf" class="jp-card" download>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)" style="margin-bottom:8px">
+          <path d="M24 4l4 8h9l-7 6 3 9-9-5-9 5 3-9-7-6h9z" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="24" cy="38" r="4" stroke="#818CF8" stroke-width="1.5"/>
+          <path d="M22 38l1.5 1.5 3-3" stroke="#D946EF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Customer Success</h3>
+        <p>Account health checks, renewal-risk notes, adoption reporting, business-review decks, and portfolio triage.</p>
+        <span class="dl-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 18h16" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download PDF
+        </span>
+      </a>
+
+      <a href="Joule Jumpstart - Skills for Architect Advisory.pdf" class="jp-card" download>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)" style="margin-bottom:8px">
+          <rect x="8" y="20" width="32" height="20" rx="2" stroke="url(#grad-v)" stroke-width="2"/>
+          <path d="M24 6l14 14H10z" stroke="#818CF8" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M16 28h4v12h-4zM28 24h4v16h-4z" stroke="#D946EF" stroke-width="1.5" stroke-linejoin="round"/>
+          <circle cx="24" cy="14" r="2" stroke="#D946EF" stroke-width="1.3"/>
+        </svg>
+        <h3>Architect Advisory</h3>
+        <p>BTP diagrams, AI architecture, Clean Core checks, arc42 docs, LeanIX navigation, and discovery workshops.</p>
+        <span class="dl-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 18h16" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download PDF
+        </span>
+      </a>
+
+      <a href="Joule Jumpstart - Skills for Product Marketing.pdf" class="jp-card" download>
+        <svg class="neon-icon" viewBox="0 0 48 48" fill="none" filter="url(#neon)" style="margin-bottom:8px">
+          <path d="M10 12v20l-4 4v-28z" stroke="#818CF8" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 12h18a8 8 0 010 16H10" stroke="url(#grad-v)" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="34" cy="20" r="4" stroke="#D946EF" stroke-width="1.5"/>
+          <path d="M36 18l-4 4" stroke="#D946EF" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M10 28h14" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+          <path d="M14 36h10" stroke="url(#grad-b)" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+        </svg>
+        <h3>Product Marketing</h3>
+        <p>Positioning frameworks, battlecards, competitive digests, copy and storytelling, launch decks, and GTM strategy.</p>
+        <span class="dl-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 18h16" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download PDF
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     7. FOOTER
      ════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="container">
@@ -345,12 +614,9 @@ a:hover{color:#1B90FF}
         <path fill="#fff" d="M244.7,38.4h-40.6v96.5l-35.5-96.6h-35.2l-30.3,80.7C100,98.7,79,91.7,62.4,86.4 51.5,82.9,39.8,77.7,40,72c.1-4.7,6.2-9,18.4-8.4 8.2.4,15.4,1.1,29.7,8l14.1-24.5c-13.1-6.6-31.2-10.9-46-10.9h-.1c-17.3,0-31.7,5.6-40.6,14.8-6.2,6.3-9.7,14.8-9.7,23.7C5.5,87.2,10.1,96,19.7,103c8.1,5.9,18.5,9.8,27.6,12.6 11.3,3.5,20.5,6.5,20.4,13-.1,2.4-1,4.7-2.7,6.4-2.8,2.9-7.1,4-13.1,4.1-11.5.2-20-1.6-33.6-9.6L5.8,154.4c14,8,29.9,12.2,46,12.2h2.1c14.2-.2,25.7-4.3,34.9-11.7.5-.4,1-.8,1.5-1.3l-4.1,10.9H123l6.2-18.8c7,2.3,14.3,3.5,21.7,3.4 7.2,0,14.3-1.1,21.2-3.2l6,18.6h60.1v-39h13.1c31.7,0,50.5-16.2,50.5-43.2C301.7,52.2,283.5,38.4,244.7,38.4zM150.9,121c-4.4,0-8.8-.7-13-2.3l12.9-40.6h.2l12.6,40.7C159.6,120.3,155.2,121,150.9,121zM247.1,97.7h-8.9V64.9h8.9c11.9,0,21.4,4,21.4,16.1C268.5,93.7,259,97.6,247.1,97.7"/>
       </svg>
     </div>
-    <p class="footer-highlight">
-      Come and see us in person<br>
-      <span class="gold">13 October</span>&ensp;|&ensp;AI Powered Growth Culture Experience Day&ensp;|&ensp;Find <span class="gold">Gabby Doyle</span> at the Joule Stand
-    </p>
-    <p style="font-size:.88rem;color:rgba(255,255,255,.5)">Whatever stage you are at, there is something here for you.</p>
-    <p class="footer-note">This page was created using AI — because that's kind of the point.</p>
+    <p class="footer-line"><span class="accent">13 October</span> &nbsp;|&nbsp; AI Powered Growth Culture Experience Day</p>
+    <p class="footer-line">Find <span class="accent">Gabby</span> at the Joule Stand</p>
+    <p class="footer-note">This page was built using AI — because that's kind of the point.</p>
   </div>
 </footer>
 
